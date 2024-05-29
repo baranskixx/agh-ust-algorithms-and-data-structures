@@ -72,9 +72,6 @@ def rect(D):
     
     return max_index
 
-        
-
-    return None
 
     
 runtests( rect )

@@ -48,7 +48,7 @@ def gold(G,V,s,t,r):
             if D[v] > d + c:
                 Q.put((d+c, v))
     
-    return D[t+n]
+    return min(D[t], D[t+n])
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
 runtests( gold, all_tests = True )

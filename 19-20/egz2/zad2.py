@@ -41,10 +41,10 @@ def highway(A):
     E = []
 
     for x in range(n):
-        for y in range(n):
+        for y in range(x+1, n):
             if y != x:
                 dist = distance(A[x], A[y])
-                E += [(dist, x, y)]
+                E.append((dist, x, y))
         
     E = sorted(E, key = lambda x : x[0])
     m = len(E)
@@ -55,11 +55,15 @@ def highway(A):
         D = []
 
         for j in range(i, m):
-            if find(V[E[j][1]]) != find(V[E[j][2]]):
-                union(V[E[j][1]], V[E[j][2]])
-                D.append(E[j][0])
+            d = E[j][0]
+            x = V[E[j][1]]
+            y = V[E[j][2]]
+            if find(x) != find(y):
+                union(x, y)
+                D.append(d)
+    
         if len(D) == n-1:
-            result  = min(result, D[n-2] - D[0])
+            result  = min(result, D[-1] - D[0])
     
     return result
         

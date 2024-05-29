@@ -7,6 +7,11 @@ Złożoność obliczeniowa: O(n)
 Sortujemy zwyczajne sortowanie kubełkowe, przyjmując jako nasz obszar [0, max(P[1])]
 """
 
+# [4, 2, 7, 1]
+
+# L = [4, 2]
+# R = [7, 1]
+
 def merge_sort(arr):
     if len(arr) > 1:
         mid = len(arr) // 2
