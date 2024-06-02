@@ -47,8 +47,7 @@ def select_buildings(T, p):
             S[x] = capacity + prev_capacity
             C[x] = T[x][3] + prev_cost
             R[x] = [T[x][-1]] if PREV[x] == -1 else R[PREV[x]] + [T[x][-1]]
-    print(S)
-    print(PREV)
+
     return sorted(R[-1])
 
 

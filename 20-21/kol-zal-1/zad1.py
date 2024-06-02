@@ -1,6 +1,13 @@
 from zad1testy import Node, runtests
 from collections import deque
 
+"""
+Autor rozwiazania: Adam Barański
+Złozonosc czasowa: O(n)
+
+Przechodzimy po BST inorder zapisując node'y po kolei w tablicy nodes
+Następnie budujemy zbalansowane drzewo
+"""
 
 def inorder_traversal(root):
     nodes = []

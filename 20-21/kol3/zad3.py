@@ -1,6 +1,20 @@
 from zad3testy import runtests
 from zad3EK    import edmonds_karp
 
+"""
+Autor rozwiązania: Adam Barański
+
+Złożoność obliczeniowa: O(V^3 + V^2 * E) 
+Idea:
+Z uzyciem algorytmu Floyda-Warshalla znajdujemy minimalna odleglosc miedzy kazda para wierzcholkow
+Konstruujemy nowy graf:
+    Do grafu dodajemy dwa wierzcholki zrodlo i ujscie
+    Od zrodla jest krawedz do kazdego niebieskiego wierzcholka
+    Z kazdego wierzcholka zielonego jest krawedz do ujscia
+    Z niebieskiego wierzcholka jest krawedz do zielonego wtw gdy sa one od siebie w odleglosci >= D
+    Kazda krawedz ma przepustowosc 1
+Na tak skonstruowanym grafie puszczamy algorytm Edmondsa-Karpa i zwracamy jego wynik (ilosc jednostek w maksymalnym przeplywie)
+"""
 def floyd_warshall(T):
     n = len(T)
     for i in range(n):

@@ -1,3 +1,17 @@
+
+"""
+Autor rozwiazania: Adam Barański
+Złozonosc czasowa: O(E * logV)
+Złozonosc pamieciowa: O(E * logV)
+
+Idea:
+Tworzymy graf o rozmiarze 2*V, 
+Pierwsze V wierzcholkow odpowiada wierzcholkom w sytuacji, kiedy mozliwe jest uzycie dwumilowych butow
+Kolejne V - kiedy uzycie nie jest mozliwe
+
+Sprawdzamy minimalny koszt dotarcia z wierzcholka s do t lub V + t
+"""
+
 from zad3testy import runtests
 from queue import PriorityQueue
 

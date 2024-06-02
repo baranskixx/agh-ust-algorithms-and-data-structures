@@ -1,21 +1,15 @@
 from egz2atesty import runtests
 
-def count_sort(arr, idx):
-    max_val = max(arr, key=lambda x: x[idx])[idx]
-    count_arr = [0] * (max_val + 1)
-    output_arr = [0] * len(arr)
+"""
+Autor rozwiązania: Adam Barański
 
-    for num in arr:
-        count_arr[num[idx]] += 1
-
-    for i in range(1, max_val + 1):
-        count_arr[i] += count_arr[i - 1]
-
-    for num in reversed(arr):
-        output_arr[count_arr[num[idx]] - 1] = num
-        count_arr[num[idx]] -= 1
-
-    return output_arr
+Złożoność obliczeniowa: O(V + E) 
+Idea:
+Rozszerzamy graf -> z kazdego wierzcholka robimy 16 (w zaleznosci od ilosci godzin, ktore mozemy
+jeszcze podrozowac bez spania)
+Korzystamy z faktu, ze krawedzie sa dlugosci maksymalnie 16, i korzystajac z BFS uruchamiamy 
+wyszukiwanie najkrotszej sciezki
+"""
 
 def dominance(P):
   n = len(P)

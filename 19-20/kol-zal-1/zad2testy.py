@@ -47,8 +47,7 @@ def runtests_internal( f ):
  
 
 def runtests( f ):
-    try:
-        runtests_internal( f )
-    except:
-        print("Bledy!")
+    
+    runtests_internal( f )
+    
         

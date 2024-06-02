@@ -1,7 +1,18 @@
 from zad2testy import runtests
 
 def fast_list_prepend(L,a):
-    pass
+    new_node = FastListNode(a)
+
+    if L is not None:
+        i = 0
+        while True:
+            new_node.next.append(L)
+            if i >= len(L.next):
+                break
+            L = L.next[i]   
+            i += 1
+        
+    return new_node
 
 
 class FastListNode:

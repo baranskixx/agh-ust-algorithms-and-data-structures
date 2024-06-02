@@ -1,3 +1,15 @@
+"""
+Autor rozwiązania: Adam Barański
+
+Złożoność obliczeniowa: O(n ^ 4) 
+Idea:
+Budujemy graf, ktorego pojedynczy wierzcholek okreslaja pozycje Karola i Maxa
+Krawedz pomiedzy dwoma wierzcholkami w takim grafie istnieje, jesli 
+mozemy w jednym ruchu przejsc z jednej pozycji obu panow do innej
+
+W takim grafie szukamy dowolnej sciezki z (s, t) do (t, s)
+"""
+
 from zad1testy import runtests
 from math import inf
 from copy import deepcopy

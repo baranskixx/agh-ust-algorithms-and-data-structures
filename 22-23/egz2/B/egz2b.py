@@ -1,5 +1,12 @@
 from egz2btesty import runtests
 
+"""
+Autor rozwiązania: Adam Barański
+
+f(i,j) = minimalna suma odległości biurowców z pozycji X[0],...,X[i] do przydzielonych im
+działek z pozycji X[0], ..., X[j]
+"""
+
 INF = 1e9
 
 def parking(X,Y):

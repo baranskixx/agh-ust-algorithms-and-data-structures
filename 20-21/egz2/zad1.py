@@ -1,5 +1,18 @@
 from zad1testy import runtests
 
+"""
+Autor rozwiazania: Adam Barański
+Złozonosc czasowa: O(n * logn)
+
+Sortujemy tablice po poczatkach przedzialow i korzystajac z przeszukiwania binarnego
+dla kazdego elementu ktory zaczyna sie w x lub mozna do niego dotrzec sklejajac przedzialy
+z ktorych pierwszy zaczyna sie w punkcie x zapisujemy te informacje w tablicy F
+
+To samo potem, tyle ze dla koncow przedzialow
+
+Zliczamy przedzialy, do ktorych mozna dotrzec z poczatku i konca
+"""
+
 def binary_search(arr, target, index):
     left = 0
     right = len(arr) - 1

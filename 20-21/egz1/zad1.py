@@ -1,4 +1,17 @@
 from zad1testy import runtests
+
+"""
+Autor rozwiązania : Adam Barański
+Złożoność obliczeniowa:    O(n*logn)
+
+Idea:
+Uzywajac stabilnego sortowania (merge sort) sortujemy 
+liste, uprzednio dodajac do kazdego elementu pierwotny indeks tego elementu przed posortowaniem
+
+W ten sposob uzyskujemy rozwiazanie biorac maksymalna roznice miedzy 
+indeksem kazdego elementu przed i po posortowaniu
+"""
+
 def merge_sort(A, index):
     if len(A) > 1:
         mid = len(A) // 2
