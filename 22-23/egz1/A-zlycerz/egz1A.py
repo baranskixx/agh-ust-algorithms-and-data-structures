@@ -2,8 +2,7 @@ from egz1Atesty import runtests
 from queue import PriorityQueue
 """
 Autor rozwiazania: Adam Barański
-Złozonosc czasowa: O(n * E)
-Złozonosc pamieciowa: O(n * E)
+Złozonosc czasowa: O(E * logV)
 
 Idea:
 Tworzymy graf o rozmiarze 2*V, 

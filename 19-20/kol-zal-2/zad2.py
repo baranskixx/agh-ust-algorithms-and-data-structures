@@ -5,7 +5,9 @@ from queue import PriorityQueue
 Autor rozwiązania: Adam Barański
 Zlozonosc: O(V * log(E))
 
-
+Djikstra z taka modyfikacja, ze zaczynamy od wszystkich wierzcholkow z pierwsza litera wyrazu a 
+na koncu sprawdzamy wszystkie wierzcholki z ostatnia litera
+Dodatkowo zapisujemy min koszt dotarcia do wierzcholka w zaleznosci od tego, ktoremu 
 """
 
 INF = 1e9
