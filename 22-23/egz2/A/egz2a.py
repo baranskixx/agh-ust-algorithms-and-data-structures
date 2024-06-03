@@ -2,13 +2,6 @@ from egz2atesty import runtests
 
 """
 Autor rozwiązania: Adam Barański
-
-Złożoność obliczeniowa: O(V + E) 
-Idea:
-Rozszerzamy graf -> z kazdego wierzcholka robimy 16 (w zaleznosci od ilosci godzin, ktore mozemy
-jeszcze podrozowac bez spania)
-Korzystamy z faktu, ze krawedzie sa dlugosci maksymalnie 16, i korzystajac z BFS uruchamiamy 
-wyszukiwanie najkrotszej sciezki
 """
 
 def dominance(P):

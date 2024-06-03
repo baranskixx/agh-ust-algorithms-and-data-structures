@@ -1,5 +1,12 @@
 from egz3btesty import runtests
 
+"""
+Autor rozwiązania: Adam Barański
+Złozonosc obliczeniowa: O(nlogn)
+
+Sliding window i jazda
+"""
+
 def uncool( P ):
     n = len(P)
     P = [(P[i][0], P[i][1], i) for i in range(n)]
@@ -9,7 +16,7 @@ def uncool( P ):
 
     x = 0
     for y in range(n):
-        while x < y and P[x][1] <P[y][0]:
+        while x < y and P[x][1] < P[y][0]:
             x += 1
         if P[x][0] < P[y][0] and P[x][1] < P[y][1]:
             return P[x][2], P[y][2]
