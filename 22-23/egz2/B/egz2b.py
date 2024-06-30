@@ -19,7 +19,8 @@ def parking(X,Y):
 
   for i in range(1, n):
     for j in range(1, m):
-      F[i][j] = min(F[i][j], F[i][j-1], abs(X[i] - Y[j]) + F[i-1][j-1])
+      F[i][j] = min(F[i][j-1], abs(X[i] - Y[j]) + F[i-1][j-1])
+      
   return min(F[n-1])
 
 # zmien all_tests na True zeby uruchomic wszystkie testy

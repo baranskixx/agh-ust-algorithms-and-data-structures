@@ -2,6 +2,7 @@ from egz2atesty import runtests
 
 """
 Autor rozwiązania: Adam Barański
+Zlozonosc: O(n)
 """
 
 def dominance(P):

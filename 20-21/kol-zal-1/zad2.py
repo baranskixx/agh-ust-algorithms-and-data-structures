@@ -18,9 +18,8 @@ def breaking(G):
     low = [-1] * n
     parent = [-1] * n
     articulation_points = [False] * n
-    time = [0]  # Wrapper for integer
+    time = [0] 
     
-    # Helper function to perform DFS
     def dfs(u):
         nonlocal time
         children = 0
@@ -28,28 +27,23 @@ def breaking(G):
         time[0] += 1
         
         for v in range(n):
-            if G[u][v] > 0:  # There is a connection
-                if discovery[v] == -1:  # v is not visited
+            if G[u][v] > 0:
+                if discovery[v] == -1:
                     parent[v] = u
                     children += 1
                     dfs(v)
                     
-                    # Check if the subtree rooted at v has a connection back to one of the ancestors of u
                     low[u] = min(low[u], low[v])
                     
-                    # (1) u is root of DFS tree and has two or more children.
-                    # (2) u is not root and low value of one of its child is more than discovery value of u.
                     if (parent[u] == -1 and children > 1) or (parent[u] != -1 and low[v] >= discovery[u]):
                         articulation_points[u] = True
                 elif v != parent[u]:  # Update low value of u for parent function calls.
                     low[u] = min(low[u], discovery[v])
-    
-    # Find all articulation points
+                    
     for i in range(n):
         if discovery[i] == -1:
             dfs(i)
     
-    # Function to count components formed by removing a point
     def count_components_excluding(exclude):
         visited = [False] * n
         def dfs_count(v):
@@ -69,7 +63,6 @@ def breaking(G):
                 count += 1
         return count
     
-    # Determine which articulation point maximizes the number of components
     max_components = 0
     best_vertex = None
     for i in range(n):

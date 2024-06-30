@@ -21,7 +21,6 @@ def Flight(L,x,y,t):
             return True
         
         T[u] = True
-        # print(u, Mini, Maxi) 
         for s, p in G[u]:
             if not T[s]:
                 if dfs(s, max(Mini, p-t), min(Maxi, p+t)):

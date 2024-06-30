@@ -1,5 +1,14 @@
 from zad1testy import runtests
 
+"""
+Autor rozwiązania: Adam Barański
+
+Złożoność obliczeniowa: O(n^2) 
+Idea:
+Problem plecakowy przy dodatkowym uwzglednieniu polozenia akademikow
+Aby zrobic w nlogn trzeba szukac preva z uzyciem binary search
+"""
+
 INF = 1e9
 
 def calculate_capacity(X):
@@ -19,36 +28,41 @@ def select_buildings(T, p):
                 PREV[x] = y
                 break
     
-    S = [0] * n
-    C = [INF] * n
-    R = [None for _ in range(n)]
-
-    for x in range(n):
-        capacity = calculate_capacity(T[x])
-        prev_capacity = 0 if PREV[x] == -1 else S[PREV[x]]
-        prev_cost = 0 if PREV[x] == -1 else C[PREV[x]]
-        if x == n-1:
-            print(capacity)
-            print(prev_capacity)
-            print(prev_cost)
-        if S[x-1] > capacity + prev_capacity:
-            S[x] = S[x-1]
-            C[x] = C[x-1]
-            R[x] = R[x-1]
-        elif S[x-1] == capacity + prev_capacity:
-            S[x] = capacity + prev_capacity
-            if T[x][3] + prev_cost < C[x-1]:
-                C[x] = T[x][3] + prev_cost
-                R[x] = [T[x][-1]] if PREV[x] == -1 else [T[x][-1]] + R[PREV[x]]
-            else:
-                C[x] = C[x-1]
-                R[x] = R[x-1]
+    F = [[0] * (p+1) for _ in range(n)]
+    for x in range(T[0][3], p+1):
+        F[0][x] = T[0][0] * (T[0][2] - T[0][1])
+    
+    for i in range(1, n):
+        for x in range(p+1):
+            F[i][x] = F[i-1][x]
+            i_cost = T[i][3]
+            i_capacity = T[i][0] * (T[i][2] - T[i][1])
+            if i_cost <= x:
+                if PREV[i] == -1:
+                    F[i][x] = max(F[i][x], i_capacity)
+                else:
+                    prev_capacity = F[PREV[i]][x - i_cost]
+                    F[i][x] = max(F[i][x], i_capacity + prev_capacity)
+    
+    RES = []
+    i = n-1
+    x = p
+    
+    while i != -1 and F[i][x] != 0:
+        if F[i][x] == F[i][x-1]:
+            x -= 1
         else:
-            S[x] = capacity + prev_capacity
-            C[x] = T[x][3] + prev_cost
-            R[x] = [T[x][-1]] if PREV[x] == -1 else R[PREV[x]] + [T[x][-1]]
-
-    return sorted(R[-1])
+            if F[i][x] == F[PREV[i]][x-T[i][3]] + T[i][0] * (T[i][2] - T[i][1]):
+                RES.append(T[i][4])
+                x -= T[i][3]
+                i = PREV[i]
+            else:
+                i -= 1
+    
+    return sorted(RES)
+            
+            
+                
 
 
 runtests( select_buildings ) 

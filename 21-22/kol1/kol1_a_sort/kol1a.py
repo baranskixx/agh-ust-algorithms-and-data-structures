@@ -1,5 +1,15 @@
 from kol1atesty import runtests
 
+"""
+Autor rozwiazania: Adam Baranski
+
+Złożoność obliczeniowa: O(nk)
+Idea:
+Kazdy napis zapisujemy jako mniejszy leksykograficznie ze zbioru (napis, palindrom_napisu)
+Sortujemy wg dlugosci na bucketu
+Sortujemy napisy w obrebie kazdego bucketu
+Znajdujemy maksymalny zbior napisow rownowaznych
+"""
 
 def split_to_buckets(T):
     max_len = len(max(T, key = lambda x : len(x)))

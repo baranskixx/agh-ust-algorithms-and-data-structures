@@ -4,7 +4,7 @@ from zad2testy import runtests
 Autor rozwiazania: Adam Baranski
 
 Złożoność obliczeniowa: O(N + M)
-Złozonosc pamieciowa: O(10^K)
+Złozonosc pamieciowa: O(M + N)
 Idea:
 Tworzymy graf w oparciu o warunek podany w zadaniu, sortujemy topologiczne.
 """

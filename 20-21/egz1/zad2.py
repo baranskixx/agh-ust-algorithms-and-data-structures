@@ -43,9 +43,9 @@ def robot(L, A, B):
         # ruch w tym samym kierunku
         move_y, move_x = DIR[dir]
         Q.put((d + SPEED[sp], y + move_y, x + move_x, dir, min(len(SPEED)-1, sp+1)))
-        # ruch w prawo
+        # obrot w prawo
         Q.put((d + TURN_SPEED, y, x, (dir + 1) % 4, 0))
-        # ruch w lewo
+        # obrot w lewo
         Q.put((d + TURN_SPEED, y, x, (dir - 1) % 4, 0))
 
     min_res = INF

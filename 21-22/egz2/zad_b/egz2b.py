@@ -1,5 +1,12 @@
 from egz2btesty import runtests
 
+"""
+Autor rozwiazania: Adam Baranski
+
+Złożoność obliczeniowa: O(N)
+Idea:
+F[i] - maks. ilosc zlota, z jaka mozemy sie dostac to i-tej komnaty
+"""
 
 def magic(C):
     INF = 1e9

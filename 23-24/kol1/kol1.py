@@ -1,5 +1,12 @@
 from kol1testy import runtests
 
+"""
+Autor rozwiązania: Adam Barański
+Złożoność obliczeniowa: O(nlogn) 
+Budujemy kopiec i wyciagamy z niego kolejne elementy, po kazdym wyciagnieciu utrzymujac jego strukture 
+z uzyciem heapify
+"""
+
 INF = 1e9
 
 def left_child_index(i):

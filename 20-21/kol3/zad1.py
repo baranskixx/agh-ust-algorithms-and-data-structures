@@ -30,8 +30,8 @@ def floyd_warshall(T):
 
 def keep_distance(M, x, y, d):
     n = len(M)
-    _start = x * n + y
-    _end   = y * n + x
+    _start = y * n + x
+    _end   = x * n + y
     n = len(M)
     T = deepcopy(M)
     floyd_warshall(T)
@@ -44,13 +44,14 @@ def keep_distance(M, x, y, d):
                 print(x, y)
                 index = x + n * y
                 for chgx in range(n):
+                    if M[x][chgx] != 0 and T[chgx][y] >= d:
+                            neigh_index = chgx + n * y
+                            G[index].append(neigh_index)
                     for chgy in range(n):
-                        if M[y][chgy] != 0 and M[x][chgx] and T[x][chg] >= d:
-                            neigh_index = x + n * chg
+                        if M[y][chgy] != 0 and M[x][chgx] and T[chgx][chgy] >= d:
+                            neigh_index = chgx + n * chgy
                             G[index].append(neigh_index)
-                        if M[x][chg] != 0 and T[chg][y] >= d:
-                            neigh_index = chg + n * y
-                            G[index].append(neigh_index)
+                        
                         
     V = [False] * (n**2)
     res = []
@@ -59,6 +60,7 @@ def keep_distance(M, x, y, d):
     def dfs(u):
         if u == _end:
             res.append(u)
+            return True
         V[u] = True
 
         for v in G[u]:
